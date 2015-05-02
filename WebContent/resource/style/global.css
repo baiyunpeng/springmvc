@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+.sidebar {
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	pading:0px;
+}
+
+.sidebar .navigation{
+	list-style-type:none;
+	padding:0px;
+}
+
+.sidebar .navigation .menu {
+	border-top: 1px solid #fcfcfc;
+	border-bottom: 1px solid #e5e5e5;
+	line-height:36px;
+	cursor:pointer;
+}
+
+.sidebar ul li:hover {
+	background-color: #fff;
+	color:red;
+}
