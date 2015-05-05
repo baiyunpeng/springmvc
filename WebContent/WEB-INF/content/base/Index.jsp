@@ -163,8 +163,8 @@
 			<div class="sidebar col-sm-4 col-md-2">
 				<ul class="navigation">
 					<li class="active menu"><a href="#"><i class="glyphicon glyphicon-scale"></i> 控制台 <span
-							class="sr-only">(current)</span></a><i class="moremenu glyphicon glyphicon-menu-down"></i></li>
-					<li class="menu"><a href="#"><i class="glyphicon glyphicon-text-width"></i>文字排版</a></li>
+							class="sr-only">(current)</span></a></li>
+					<li class="menu"><a href="#"><i class="glyphicon glyphicon-hdd"></i>缓存管理</a></li>
 					<li class="menu"><a href="#">组件</a></li>
 					<li class="menu"><a href="#">表格</a></li>
 					<li class="menu"><a href="#">表单</a></li>
