@@ -35,7 +35,7 @@
 		<property name="packagesToScan" value="com.pmp.pojo"></property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.show_sql">${showSQL}</prop>
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
@@ -50,15 +50,21 @@
 	
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">  
         <property name="driverClass" value="com.mysql.jdbc.Driver" />  
-        <property name="jdbcUrl" value="jdbc:mysql:///test" />  
-        <property name="maxIdleTime" value="25000" />  
+        <property name="jdbcUrl" value="${jdbcUrl}" />  
+        <property name="maxIdleTime" value="${jdbMaxIdleTime}" />  
         <property name="properties">  
             <props>  
-                <prop key="user">root</prop>  
-                <prop key="password">root</prop>  
-                <prop key="c3p0.max_size">20</prop>  
-                <prop key="c3p0.min_size">5</prop>  
+                <prop key="user">${jdbcUserName}</prop>  
+                <prop key="password">${jdbcPassWord}</prop>  
+                <prop key="c3p0.max_size">${jdbcMaxSize}</prop>  
+                <prop key="c3p0.min_size">${jdbcMinSize}</prop>  
             </props>  
         </property>  
     </bean>  
+    
+    <!-- 开发环境配置文件 -->
+	<beans profile="dev">
+		<context:property-placeholder location="classpath*:/config_develop.properties"
+			ignore-unresolvable="true" />
+	</beans>
 </beans>

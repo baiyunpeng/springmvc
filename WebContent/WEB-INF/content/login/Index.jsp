@@ -9,6 +9,9 @@
 <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
 <title>欢迎来到我的世界</title>
 <jsp:include page="../base/base.jsp"></jsp:include>
+<link rel="Stylesheet" type="text/css"
+	href="${basePath }/resource/style/login/Index.css" />
+	<script type="text/javascript" src="${basePath }/resource/script/login/Index.js"></script>
 <!-- Bootstrap -->
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -17,20 +20,6 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<style type="text/css">
-.banner {
-	position: relative;
-	overflow: auto;
-}
-
-.banner li {
-	list-style: none;
-}
-
-.banner ul li {
-	float: left;
-}
-</style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -46,12 +35,14 @@
 				<a class="navbar-brand" href="#">欢迎来到我的世界</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
-				<form class="navbar-form navbar-right" action="login.html">
+				<form id="loginFrom" class="navbar-form navbar-right" action="login.html">
 					<div class="form-group">
-						<input type="email" placeholder="Email" name="email"  class="form-control">
+						<input type="email" placeholder="Email" name="email"
+							class="form-control">
 					</div>
 					<div class="form-group">
-						<input type="password" placeholder="Password" name="password" class="form-control">
+						<input type="password" placeholder="Password" name="password"
+							class="form-control">
 					</div>
 					<button type="submit" class="btn btn-success">登陆</button>
 				</form>
@@ -60,162 +51,80 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container main">
 		<div class="row">
-			<div class="sidebar col-sm-4 col-md-2">
-				<ul class="navigation">
-					<li class="active menu"><a href="#"><i
-							class="glyphicon glyphicon-scale"></i> 控制台 <span class="sr-only">(current)</span></a></li>
-					<li class="menu"><a href="#"><i
-							class="glyphicon glyphicon-hdd"></i>缓存管理</a></li>
-					<li class="menu"><a href="#">组件</a></li>
-					<li class="menu"><a href="#">表格</a></li>
-					<li class="menu"><a href="#">表单</a></li>
-				</ul>
-				<ul class="navigation">
-					<li class="menu"><a href="">Nav item</a></li>
-					<li class="menu"><a href="">Nav item again</a></li>
-					<li class="menu"><a href="">One more nav</a></li>
-					<li class="menu"><a href="">Another nav item</a></li>
-					<li class="menu"><a href="">More navigation</a></li>
-				</ul>
-				<ul class="navigation">
-					<li class="menu"><a href="">Nav item again</a></li>
-					<li class="menu"><a href="">One more nav</a></li>
-					<li class="menu"><a href="">Another nav item</a></li>
-				</ul>
-			</div>
-			<div class=".col-sm-8 main">
-				<h2 class="sub-header">Section title</h2>
-				<div class="table-responsive">
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Header</th>
-								<th>Header</th>
-								<th>Header</th>
-								<th>Header</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1,001</td>
-								<td>Lorem</td>
-								<td>ipsum</td>
-								<td>dolor</td>
-								<td>sit</td>
-							</tr>
-							<tr>
-								<td>1,002</td>
-								<td>amet</td>
-								<td>consectetur</td>
-								<td>adipiscing</td>
-								<td>elit</td>
-							</tr>
-							<tr>
-								<td>1,003</td>
-								<td>Integer</td>
-								<td>nec</td>
-								<td>odio</td>
-								<td>Praesent</td>
-							</tr>
-							<tr>
-								<td>1,003</td>
-								<td>libero</td>
-								<td>Sed</td>
-								<td>cursus</td>
-								<td>ante</td>
-							</tr>
-							<tr>
-								<td>1,004</td>
-								<td>dapibus</td>
-								<td>diam</td>
-								<td>Sed</td>
-								<td>nisi</td>
-							</tr>
-							<tr>
-								<td>1,005</td>
-								<td>Nulla</td>
-								<td>quis</td>
-								<td>sem</td>
-								<td>at</td>
-							</tr>
-							<tr>
-								<td>1,006</td>
-								<td>nibh</td>
-								<td>elementum</td>
-								<td>imperdiet</td>
-								<td>Duis</td>
-							</tr>
-							<tr>
-								<td>1,007</td>
-								<td>sagittis</td>
-								<td>ipsum</td>
-								<td>Praesent</td>
-								<td>mauris</td>
-							</tr>
-							<tr>
-								<td>1,008</td>
-								<td>Fusce</td>
-								<td>nec</td>
-								<td>tellus</td>
-								<td>sed</td>
-							</tr>
-							<tr>
-								<td>1,009</td>
-								<td>augue</td>
-								<td>semper</td>
-								<td>porta</td>
-								<td>Mauris</td>
-							</tr>
-							<tr>
-								<td>1,010</td>
-								<td>massa</td>
-								<td>Vestibulum</td>
-								<td>lacinia</td>
-								<td>arcu</td>
-							</tr>
-							<tr>
-								<td>1,011</td>
-								<td>eget</td>
-								<td>nulla</td>
-								<td>Class</td>
-								<td>aptent</td>
-							</tr>
-							<tr>
-								<td>1,012</td>
-								<td>taciti</td>
-								<td>sociosqu</td>
-								<td>ad</td>
-								<td>litora</td>
-							</tr>
-							<tr>
-								<td>1,013</td>
-								<td>torquent</td>
-								<td>per</td>
-								<td>conubia</td>
-								<td>nostra</td>
-							</tr>
-							<tr>
-								<td>1,014</td>
-								<td>per</td>
-								<td>inceptos</td>
-								<td>himenaeos</td>
-								<td>Curabitur</td>
-							</tr>
-							<tr>
-								<td>1,015</td>
-								<td>sodales</td>
-								<td>ligula</td>
-								<td>in</td>
-								<td>libero</td>
-							</tr>
-						</tbody>
-					</table>
+
+			<div>
+				<p class="pull-right visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">Toggle nav</button>
+				</p>
+				<div class="jumbotron">
+					<h1>欢迎来到我的世界!</h1>
+					<p>这里是我的一个测试项目的网站，这里可以分享代码片段，可以讨论代码上的一些东西，可以进行交流互动，后台有缓存管理，以及一些的的最新的技术，都分享在这里。</p>
 				</div>
+				<div class="row">
+					<div class="col-xs-6 col-lg-4">
+						<h2>代码片段</h2>
+						<p>这里展示了一些优秀的代码片段，比如Hibernate的一些基础操作，一些工具类的分享，碎片化得代码的分享，对代码进行精益求精的编写。</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">查看更多  »</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+					<div class="col-xs-6 col-lg-4">
+						<h2>论坛</h2>
+						<p>这里有着很多的技术大牛，可以对菜鸟们进行分享技术，以及大牛之间的交流互动，菜鸟的福利到啦，赶快来参加吧，热烈欢迎。</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">
+								查看更多  »</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+					<div class="col-xs-6 col-lg-4">
+						<h2>博客</h2>
+						<p>可以撰写自己的心得，或者分享给别人一些技术性指导，更或者把自己的心得和历程记录新下来，赶快来参加吧，热烈欢迎。</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">查看更多  »</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+					<div class="col-xs-6 col-lg-4">
+						<h2>上传下载</h2>
+						<p>可以对文件进行上传下载，对自己的一些资源文件或者对别人有帮助的文件的上传分享给别人下载，赶快来参加吧，热烈欢迎</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">查看更多  »</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+					<div class="col-xs-6 col-lg-4">
+						<h2>文档学习</h2>
+						<p>可以进行在线的文档的学习，可以以ppt的形式对文件进行预览学习，自己上传的文档可以进行预览，赶快来参加吧，热烈欢迎。</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">查看更多  »</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+					<div class="col-xs-6 col-lg-4">
+						<h2>对技术的追求</h2>
+						<p>这里是对技术的爱好者来看的地方，来灌水玩的人，这里可能不太适合你们，我们是帮助别人学些的，赶快来参加吧，热烈欢迎</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">查看更多  »</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+				</div>
+				<!--/row-->
 			</div>
+
 		</div>
+		<!--/row-->
+
+		<hr>
+
+		<footer>
+			<p>© Company 2014</p>
+		</footer>
 
 	</div>
 </body>
