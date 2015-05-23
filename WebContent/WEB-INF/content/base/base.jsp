@@ -14,4 +14,8 @@
 <script type="text/javascript" src="${basePath }/resource/script/jquery/validate/js/bootstrapValidator.js"></script>
 <script type="text/javascript" src="${basePath }/resource/script/jquery/validate/js/language/zh_CN.js"></script>
 
+<!-- MyDate97 -->
+<script type="text/javascript" src="${basePath }/resource/script/jquery/My97DatePicker/WdatePicker.js"></script>
+
+<script type="text/javascript" src="${basePath }/resource/script/jquery/Date.js"></script>
 <script type="text/javascript" src="${basePath }/resource/script/jquery/common.js"></script>

@@ -8,7 +8,7 @@
 	<!-- 默认的spring配置文件是在WEB-INF下的applicationContext.xml -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:applicationContext.xml</param-value>
+		<param-value>classpath*:application*.xml</param-value>
 	</context-param>
 
 	<context-param>
@@ -58,8 +58,6 @@
 	<servlet>
 		<servlet-name>springMVC</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<!-- <init-param> <param-name>contextConfigLocation</param-name> <param-value>classpath*:springMVC-servlet.xml</param-value> 
-			</init-param> -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<!-- 所有请求，统一使用html后缀 -->
