@@ -141,7 +141,6 @@
 					</div>
 				</div>
 				
-				
 				<div class="form-group">
 					<label for="address" class="col-sm-4 control-label">家庭住址：</label>
 					<div class="col-sm-8">
@@ -154,6 +153,7 @@
 						</div>
 					</div>
 				</div>
+				<input type="hidden" name="GLOBAL_SESSION_TOKEN" value="${GLOBAL_SESSION_TOKEN }">
 				<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
 			</div>
 		</form>

@@ -26,7 +26,7 @@ public class UserService {
 	}
 
 	public User testLogin(User user) {
-		return findUserByEmail(user);
+		return findUser(user);
 		
 	}
 }

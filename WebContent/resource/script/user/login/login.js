@@ -9,7 +9,6 @@ $(function() {
 			}else{
 				$("#password").focus();
 			}
-			
 		}
 	});
 	
@@ -21,15 +20,14 @@ $(function() {
 			if(isEmpty(password)){
 				tips("#password","密码不能为空");
 			}else{
-				var username = $("#username").val();
-				var password = $("#password").val();
-				checklogin(username,password);
+				checklogin();
 			}
 			
 		}
 	});
 	
 	$("#loginButton").click(function(){
+		
 		checklogin();
 	});
 	
@@ -49,8 +47,11 @@ $(function() {
 		}
 	}
 	
-	function checklogin(username,password){
+	function checklogin(){
 		validate();
+		var username = $("#username").val();
+		var password = $("#password").val();
+		alert(username+":"+password);
 		var index = loading();
 		$.post("checkLogin.html", { "username":encodeURI(username),"password":password },function(data){
 			closeLayer(index);

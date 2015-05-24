@@ -3,6 +3,7 @@ package com.pmp.aop.aspectj.log;
 import javax.servlet.http.HttpServletRequest;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,7 @@ import com.pmp.service.log.LogService;
 public class LogSection {
 	@Autowired
 	private LogService logService;
-
-	@Before("@annotation(log)")
+	@After("@annotation(log)")
 	public void recordLog(JoinPoint jp, Log log) {
 		// 得到操作类的类名
 		String className = jp.getSignature().getDeclaringTypeName();
@@ -33,8 +33,7 @@ public class LogSection {
 		Object[] obj = jp.getArgs();
 		String IP = WebUtils.getIpAddr((HttpServletRequest) obj[0]);
 		String username = WebUtils.getWebUserName((HttpServletRequest) obj[0]);
-		String userAlias = WebUtils
-				.getWebUserAlias((HttpServletRequest) obj[0]);
+		String userAlias = WebUtils.getWebUserAlias((HttpServletRequest) obj[0]);
 		LogEntity logEntity = new LogEntity.Builder(log).IP(IP)
 				.username(username).userAlias(userAlias).className(className)
 				.methodName(methodName).builder();

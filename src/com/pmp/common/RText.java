@@ -267,7 +267,7 @@ public class RText {
 
 	public static String encodeMD5(String str) {
 		try {
-			str = DigestUtils.md5Hex(str.getBytes("UTF-8"));
+			str = DigestUtils.md5Hex(toString(str).getBytes("UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

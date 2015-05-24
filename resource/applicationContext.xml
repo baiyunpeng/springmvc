@@ -63,7 +63,9 @@
                 <prop key="c3p0.min_size">${jdbc.minSize}</prop>  
             </props>  
         </property>  
-    </bean>  
+    </bean> 
+    
+    <bean id="SessionHolder" class="com.pmp.session.LocalSessionHolder"/>
     
     <!-- 开发环境配置文件 -->
 	<beans profile="dev">

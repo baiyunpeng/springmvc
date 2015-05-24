@@ -37,7 +37,7 @@
 				<a class="navbar-brand" href="#">欢迎来到我的世界</a>
 			</div>
 			<c:choose>
-				<c:when test="${empty sessionScope.user}">
+				<c:when test="${empty sessionScope.GLOBAL_SESSION_USER}">
 					<div id="navbar" class="navbar-collapse collapse">
 						<form id="loginFrom" class="navbar-form navbar-right"
 							action="login.html" method="post">
@@ -53,12 +53,12 @@
 						</form>
 					</div>
 				</c:when>
-				<c:when test="${not empty sessionScope.user}">
+				<c:when test="${not empty sessionScope.GLOBAL_SESSION_USER}">
 
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-expanded="false"><i
-								class="glyphicon glyphicon-user"></i> ${sessionScope.user.useralias } <span class="caret"></span>
+								class="glyphicon glyphicon-user"></i> ${sessionScope.GLOBAL_SESSION_USER.useralias } <span class="caret"></span>
 						</a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#"><i class="glyphicon glyphicon-cog"></i>
