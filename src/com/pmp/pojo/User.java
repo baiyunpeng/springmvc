@@ -1,9 +1,15 @@
 package com.pmp.pojo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -12,6 +18,12 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import com.pmp.common.DateUtil;
 import com.pmp.common.RText;
 
+/**
+ * 用户表
+ * 
+ * @author Administrator
+ * 
+ */
 @Entity
 @Table(name = "t_user")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -71,6 +83,13 @@ public class User {
 	 * 最后修改时间
 	 */
 	private String lastdate;
+
+	/**
+	 * 多对多关联权限表
+	 */
+	@ManyToMany(cascade = CascadeType.REFRESH)
+	@JoinTable(name = "t_user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
+	private List<Role> roles;
 
 	public Integer getId() {
 		return id;
@@ -175,6 +194,14 @@ public class User {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 }
