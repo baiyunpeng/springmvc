@@ -40,7 +40,7 @@ public class RegisterController extends BaseController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@Parameter
 	@Token(remove=true)
-	@Log(moduleType=ModuleConstant.LOGINOUT,operationType=OperationConstant.INSERT,logInfo="用户注册",describe="用户注册")
+	@Log(moduleType=ModuleConstant.REGISTER,operationType=OperationConstant.INSERT,logInfo="用户注册",describe="用户注册")
 	public ModelAndView register(HttpServletRequest request,HttpServletResponse response,User user) {
 		if(WebUtils.isSubmitSuccess(request)){
 			userService.add(user);

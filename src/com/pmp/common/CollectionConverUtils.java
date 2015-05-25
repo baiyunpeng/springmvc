@@ -1,7 +1,9 @@
 package com.pmp.common;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -31,31 +33,63 @@ public class CollectionConverUtils {
 	}
 
 	/**
-	 * 数组转List
-	 * 
-	 * @param array
+	 * List 转数组
+	 * @param oList
 	 * @return
 	 */
-	public static List arrayToList(Object[] array) {
-		List parameters = new ArrayList(array.length);
-		for (Object obj : array) {
-			parameters.add(obj);
-		}
-		return parameters;
+	public static Object[] List2Array(List oList) {
+		Object[] oArray = oList.toArray(new Object[] {});
+		return oArray;
+	}
+	/**
+	 * Set 转数组
+	 * @param oList
+	 * @return
+	 */
+	public static Object[] Set2Array(Set oSet) {
+		Object[] oArray = oSet.toArray(new Object[] {});
+		return oArray;
 	}
 
 	/**
-	 * List转数组
-	 * 
-	 * @param array
+	 * Set 转List
+	 * @param oList
 	 * @return
 	 */
-	public static Object[] listToArray(List list) {
-		Object[] array = new Object[list.size()];
-		for (int i = 0; i < list.size(); i++) {
-			array[i] = list.get(i);
-		}
-		return array;
+	public static <T extends Object> List<T> Set2List(Set<T> oSet) {
+		List<T> tList = new ArrayList<T>(oSet);
+		return tList;
+	}
+
+	
+	/**
+	 * 数组转 转List
+	 * @param tArray
+	 * @return
+	 */
+	public static <T extends Object> List<T> Array2List(T[] tArray) {
+		List<T> tList = Arrays.asList(tArray);
+		return tList;
+	}
+
+	/**
+	 * List 转 Set
+	 * @param tList
+	 * @return
+	 */
+	public static <T extends Object> Set<T> List2Set(List<T> tList) {
+		Set<T> tSet = new HashSet<T>(tList);
+		return tSet;
+	}
+
+	/**
+	 * 数组转Set
+	 * @param tArray
+	 * @return
+	 */
+	public static <T extends Object> Set<T> Array2Set(T[] tArray) {
+		Set<T> tSet = new HashSet<T>(Arrays.asList(tArray));
+		return tSet;
 	}
 
 	/**

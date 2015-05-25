@@ -1,5 +1,6 @@
 package com.pmp.common;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -56,7 +57,8 @@ public class ReflectUtil {
 		return propertys;
 	}
 
-	public static Class[] getEntityPropertyType(Class clazz,String... propertys) {
+	public static Class[] getEntityPropertyType(Class clazz,
+			String... propertys) {
 		String[] propertyTypes = propertys;
 		Class[] propertyClassTypes = new Class[propertyTypes.length];
 		for (int i = 0; i < propertyTypes.length; i++) {
@@ -273,4 +275,17 @@ public class ReflectUtil {
 		values = converParameterType(fieldTypes, values);
 		return setMethodValue(entity, getMethod, fieldTypes, values);
 	}
+
+	/**
+	 * 根据Class 得到Annotation数组
+	 * @param clazz
+	 * @return
+	 */
+	public static Annotation[] getAnnotations(Class clazz) {
+		Annotation[] annotations = clazz.getAnnotations();
+		return annotations;
+	}
+	
+	
+	
 }

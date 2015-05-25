@@ -48,7 +48,7 @@ public class LoginController extends BaseController {
 	public ModelAndView toLogin(HttpServletRequest request,
 			HttpServletResponse response) {
 		ModelAndView mov = new ModelAndView();
-		mov.setViewName("/user/login/toLogin");
+		//mov.setViewName("/user/login/toLogin");
 		return mov;
 	}
 

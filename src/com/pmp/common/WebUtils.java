@@ -41,7 +41,7 @@ public class WebUtils {
 			if (ip == null || ip.length() == 0
 					|| "unknown".equalsIgnoreCase(ip)) {
 				ip = request.getRemoteAddr();
-				
+
 			}
 		} else if (ip.length() > 15) {
 			String[] ips = ip.split(",");
@@ -70,7 +70,7 @@ public class WebUtils {
 			username = user.getUsername();
 		} else if (null != request) {
 			username = request.getParameter("username");
-			if(RText.isEmpty(username)){
+			if (RText.isEmpty(username)) {
 				username = RText.toString(request.getAttribute("username"));
 			}
 		}
@@ -91,7 +91,7 @@ public class WebUtils {
 			useralias = user.getUseralias();
 		} else if (null != request) {
 			useralias = request.getParameter("useralias");
-			if(RText.isEmpty(useralias)){
+			if (RText.isEmpty(useralias)) {
 				useralias = RText.toString(request.getAttribute("useralias"));
 			}
 		}
@@ -174,5 +174,46 @@ public class WebUtils {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * 得到url 包含 项目名称
+	 * 
+	 * @param request
+	 * @return
+	 */
+	public static String getWebUrl(HttpServletRequest request) {
+		String url = request.getRequestURI();
+		return url;
+	}
+	
+	/**
+	 * 得到url 不包含 项目名称
+	 * 
+	 * @param request
+	 * @return
+	 */
+	public static String getWebPath(HttpServletRequest request) {
+		StringBuilder urlPath = new StringBuilder(getWebUrl(request));
+		String path = request.getContextPath();
+		int pathIndex = urlPath.indexOf(path);
+		path =  urlPath.substring(pathIndex+path.length());
+		urlPath = null;
+		return path;
+	}
+	
+	
+	
+	/**
+	 * 得到url 不包含 项目名称
+	 * 
+	 * @param request
+	 * @return
+	 */
+	public static String getWebNameSpace(HttpServletRequest request) {
+		StringBuilder urlNameSpace = new StringBuilder(getWebPath(request));
+		String nameSpace = urlNameSpace.substring(0,urlNameSpace.lastIndexOf(".html"));
+		urlNameSpace = null;
+		return nameSpace;
 	}
 }
