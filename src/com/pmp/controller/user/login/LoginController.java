@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pmp.aop.aspectj.log.Log;
 import com.pmp.aop.aspectj.parameter.Parameter;
-import com.pmp.aop.aspectj.token.Token; 
+import com.pmp.aop.aspectj.token.Token;
 import com.pmp.common.RText;
 import com.pmp.common.WebUtils;
 import com.pmp.constant.ModuleConstant;
@@ -32,13 +32,12 @@ public class LoginController extends BaseController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView Index(HttpServletRequest request,
 			HttpServletResponse response) {
-		ModelAndView mov = new ModelAndView();
-		mov.setViewName("/user/login/Index");
-		return mov;
+		return getMov();
 	}
 
 	/**
 	 * 跳转到登陆页面
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -47,13 +46,12 @@ public class LoginController extends BaseController {
 	@Token(save = true)
 	public ModelAndView toLogin(HttpServletRequest request,
 			HttpServletResponse response) {
-		ModelAndView mov = new ModelAndView();
-		//mov.setViewName("/user/login/toLogin");
-		return mov;
+		return getMov();
 	}
 
 	/**
 	 * 登陆
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -71,7 +69,8 @@ public class LoginController extends BaseController {
 		user.setPassword(password);
 		User loginUser = userService.testLogin(user);
 		if (null != loginUser) {
-			SessionHolder.setValueToSession(SessionConstant.GLOBAL_SESSION_USER, loginUser);
+			SessionHolder.setValueToSession(
+					SessionConstant.GLOBAL_SESSION_USER, loginUser);
 		}
 		ModelAndView mov = new ModelAndView();
 		mov.setViewName("redirect:/login/index.html");
@@ -80,6 +79,7 @@ public class LoginController extends BaseController {
 
 	/**
 	 * 检查登陆
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -106,6 +106,7 @@ public class LoginController extends BaseController {
 
 	/**
 	 * 退出登陆
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -114,13 +115,13 @@ public class LoginController extends BaseController {
 	@Log(moduleType = ModuleConstant.LOGINOUT, operationType = OperationConstant.VISIT, logInfo = "用户退出", describe = "用户退出")
 	public ModelAndView loginOut(HttpServletRequest request,
 			HttpServletResponse response) {
-		
-		//记录username 和useralias 用于Log 日志记录账号和姓名
+
+		// 记录username 和useralias 用于Log 日志记录账号和姓名
 		String username = WebUtils.getWebUserName(request);
 		String useralias = WebUtils.getWebUserAlias(request);
 		request.setAttribute("username", username);
 		request.setAttribute("useralias", useralias);
-		
+
 		SessionHolder.logOut();
 		ModelAndView mov = new ModelAndView();
 		mov.setViewName("redirect:/login/index.html");

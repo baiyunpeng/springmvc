@@ -32,9 +32,7 @@ public class RegisterController extends BaseController {
 	@Token(save=true)
 	public ModelAndView toRegister(HttpServletRequest request,
 			HttpServletResponse response) {
-		ModelAndView mov = new ModelAndView();
-		mov.setViewName("/user/register/toRegister");
-		return mov;
+		return getMov();
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
