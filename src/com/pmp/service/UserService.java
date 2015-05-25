@@ -20,13 +20,13 @@ public class UserService {
 	public User findUser(User user) {
 		return userDao.findUniqueResult(user);
 	}
-	
-	public User findUserByEmail(User user){
+
+	public User findUserByEmail(User user) {
 		return userDao.findUniqueResult(user);
 	}
 
 	public User testLogin(User user) {
 		return findUser(user);
-		
+
 	}
 }
