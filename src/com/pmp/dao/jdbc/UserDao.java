@@ -13,7 +13,7 @@ import com.pmp.entity.jdbc.HQLEntity;
 import com.pmp.pojo.User;
 
 @Repository
-public class UserDao extends BaseDao<User, Integer> {
+public class UserDao extends BaseDAO<User, Integer> {
 
 /*	public User findUser(User user) {
 		Query query = findBasicHQL(user);

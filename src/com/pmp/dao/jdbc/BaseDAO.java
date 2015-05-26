@@ -16,13 +16,13 @@ import com.pmp.common.RText;
 import com.pmp.common.ReflectUtil;
 import com.pmp.entity.jdbc.HQLEntity;
 
-public class BaseDao<T, PK extends Serializable> {
+public class BaseDAO<T, PK extends Serializable> {
 
 	private SessionFactory sessionFactory;
 
 	private Class<?> entityClass;
 
-	public BaseDao() {
+	public BaseDAO() {
 		entityClass = ReflectUtil.getGenericParmeterType(this.getClass());
 	}
 

@@ -1,11 +1,12 @@
 package com.pmp.common;
 
-
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
@@ -26,6 +27,7 @@ public class RText {
 
 	/**
 	 * 判断是否为空
+	 * 
 	 * @param obj
 	 * @return
 	 */
@@ -38,6 +40,7 @@ public class RText {
 
 	/**
 	 * 判断是否为空
+	 * 
 	 * @param obj
 	 * @return
 	 */
@@ -52,24 +55,25 @@ public class RText {
 		}
 		return false;
 	}
-	
-	public static String[] split(String str,String split){
-		return StringUtils.split(str,split);
+
+	public static String[] split(String str, String split) {
+		return StringUtils.split(str, split);
 	}
-	
-	
+
 	/**
 	 * 首字母转大写
+	 * 
 	 * @return
 	 */
 	public static String toUpperCaseFirstOne(String name) {
 		StringBuilder sb = new StringBuilder(name);
 		sb.setCharAt(0, Character.toUpperCase(sb.charAt(0)));
-		return  sb.toString();
-    }
+		return sb.toString();
+	}
 
 	/**
 	 * toString 方法重载 转换成String类型
+	 * 
 	 * @param obj
 	 * @return
 	 */
@@ -83,13 +87,14 @@ public class RText {
 		}
 		return "";
 	}
-	
+
 	/**
 	 * toString 方法重载 转换成String类型
+	 * 
 	 * @param obj
 	 * @return
 	 */
-	public static String toString(Object obj,String def) {
+	public static String toString(Object obj, String def) {
 		if (isEmpty(obj)) {
 			return "";
 		}
@@ -99,9 +104,10 @@ public class RText {
 		}
 		return def;
 	}
-	
+
 	/**
 	 * toString 方法重载 转换成String数组
+	 * 
 	 * @param obj
 	 * @return
 	 */
@@ -111,9 +117,9 @@ public class RText {
 		}
 		if (array instanceof String[]) {
 			return (String[]) array;
-		}else if(array instanceof Object[]){
+		} else if (array instanceof Object[]) {
 			String[] strArray = new String[array.length];
-			for(int i=0;i<array.length;i++){
+			for (int i = 0; i < array.length; i++) {
 				strArray[i] = toString(array[i]);
 			}
 			return strArray;
@@ -122,13 +128,32 @@ public class RText {
 	}
 
 	/**
-	 * 根据数组下标获取值
-	 * Object[] array = {1,3,5}
-	 * toObjectForArray(array,0)  = 1
+	 * toString 方法重载 转换成Map
 	 * 
-	 * toObjectForArray(array,1)  = 3
+	 * @param obj
+	 * @return
+	 */
+	public static Map<String, String> toString(Map<Object, Object> map) {
+		if (isEmpty(map)) {
+			return null;
+		}
+		Map<String, String> stirngMap = new HashMap<String, String>();
+		Set<Object> keys = map.keySet();
+		for (Object key : keys) {
+			String value = toString(map.get(key));
+			stirngMap.put(toString(key), value);
+		}
+		keys = null;
+		return stirngMap;
+	}
+
+	/**
+	 * 根据数组下标获取值 Object[] array = {1,3,5} toObjectForArray(array,0) = 1
 	 * 
-	 * toObjectForArray(array,3)  = null
+	 * toObjectForArray(array,1) = 3
+	 * 
+	 * toObjectForArray(array,3) = null
+	 * 
 	 * @param T
 	 * @return T
 	 */
@@ -145,13 +170,12 @@ public class RText {
 	}
 
 	/**
-	 * 根据数组下标获取值
-	 * Object[] array = {1,3,5}
-	 * toObjectForArray(array,0,0)  = 1
+	 * 根据数组下标获取值 Object[] array = {1,3,5} toObjectForArray(array,0,0) = 1
 	 * 
-	 * toObjectForArray(array,1,0)  = 3
+	 * toObjectForArray(array,1,0) = 3
 	 * 
-	 * toObjectForArray(array,3,0)  = 0
+	 * toObjectForArray(array,3,0) = 0
+	 * 
 	 * @param obj
 	 * 
 	 * @param def
@@ -168,13 +192,12 @@ public class RText {
 	}
 
 	/**
-	 * 根据数组下标获取值
-	 * String[] array = {"A","B","C"}
-	 * toStringForArray(array,0)  = "A"
+	 * 根据数组下标获取值 String[] array = {"A","B","C"} toStringForArray(array,0) = "A"
 	 * 
-	 * toStringForArray(array,1)  = "B"
+	 * toStringForArray(array,1) = "B"
 	 * 
-	 * toStringForArray(array,3)  = ""
+	 * toStringForArray(array,3) = ""
+	 * 
 	 * @param obj
 	 * 
 	 * 
@@ -189,15 +212,14 @@ public class RText {
 		return "";
 	}
 
-	
 	/**
-	 * 根据数组下标获取值
-	 * String[] array = {"A","B","C"}
-	 * toStringForArray(array,0,"def")  = "A"
+	 * 根据数组下标获取值 String[] array = {"A","B","C"} toStringForArray(array,0,"def")
+	 * = "A"
 	 * 
-	 * toStringForArray(array,1,"def")  = "B"
+	 * toStringForArray(array,1,"def") = "B"
 	 * 
-	 * toStringForArray(array,3,"def")  = "def"
+	 * toStringForArray(array,3,"def") = "def"
+	 * 
 	 * @param obj
 	 * 
 	 * @param def
@@ -215,6 +237,7 @@ public class RText {
 
 	/**
 	 * 字符串转Integer 类型
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -233,6 +256,7 @@ public class RText {
 
 	/**
 	 * 字符串转Integer 类型
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -251,6 +275,7 @@ public class RText {
 
 	/**
 	 * 字符串转Long 类型
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -269,6 +294,7 @@ public class RText {
 
 	/**
 	 * 字符串转Long 类型
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -287,6 +313,7 @@ public class RText {
 
 	/**
 	 * 字符串转boolean 类型
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -303,8 +330,10 @@ public class RText {
 		}
 		return bool;
 	}
+
 	/**
 	 * 字符串转boolean 类型
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -324,6 +353,7 @@ public class RText {
 
 	/**
 	 * 转 json
+	 * 
 	 * @param obj
 	 * @return
 	 */
@@ -334,6 +364,7 @@ public class RText {
 
 	/**
 	 * 根据json转成实体类
+	 * 
 	 * @param json
 	 * @param clazz
 	 * @return
@@ -345,6 +376,7 @@ public class RText {
 
 	/**
 	 * 根据json转成实体类
+	 * 
 	 * @param json
 	 * @param clazz
 	 * @return
@@ -360,6 +392,7 @@ public class RText {
 
 	/**
 	 * base64 加密
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -375,6 +408,7 @@ public class RText {
 
 	/**
 	 * base64 解密
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -385,6 +419,7 @@ public class RText {
 
 	/**
 	 * 哈希加密
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -400,6 +435,7 @@ public class RText {
 
 	/**
 	 * 哈希解密
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -416,6 +452,7 @@ public class RText {
 
 	/**
 	 * MD5加密
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -427,10 +464,10 @@ public class RText {
 		}
 		return str;
 	}
-	
 
 	/**
 	 * SHA加密
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -445,6 +482,7 @@ public class RText {
 
 	/**
 	 * 得到UUID
+	 * 
 	 * @return
 	 */
 	public static String getUUID() {
@@ -454,6 +492,7 @@ public class RText {
 
 	/**
 	 * 随机得到一串数组
+	 * 
 	 * @return
 	 */
 	public static int getRandomNumber() {
@@ -464,7 +503,8 @@ public class RText {
 	/**
 	 * 随机得到一串数组
 	 * 
-	 * @param n 小于多少
+	 * @param n
+	 *            小于多少
 	 * @return
 	 */
 	public static int getRandomNumber(int n) {
@@ -474,30 +514,35 @@ public class RText {
 
 	/**
 	 * 随机得到一个字符串
+	 * 
 	 * @return
 	 */
 	public static String getRandomStr() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < templateStr.length; i++) {
-			sb.append(toStringForArray(templateStr,getRandomNumber(templateStr.length), ""));
+			sb.append(toStringForArray(templateStr,
+					getRandomNumber(templateStr.length), ""));
 		}
 		return sb.toString();
 	}
 
-
-
 	/**
 	 * 根据类路径和方法得到controller 命名空间
+	 * 
 	 * @param className
 	 * @param methodName
 	 */
-	public static String getControllerNameSpace(String className,String methodName) {
-		if(!className.startsWith(GlobalConstant.BaseControllerNameSpace)){
+	public static String getControllerNameSpace(String className,
+			String methodName) {
+		if (!className.startsWith(GlobalConstant.BaseControllerNameSpace)) {
 			return "";
 		}
-		String space = className.substring(GlobalConstant.BaseControllerNameSpace.length(),className.lastIndexOf(".")+1);
+		String space = className.substring(
+				GlobalConstant.BaseControllerNameSpace.length(),
+				className.lastIndexOf(".") + 1);
 		StringBuilder nameSpace = new StringBuilder();
-		String spacePath = nameSpace.append(space).append(methodName).toString().replace(".", "/"); 
+		String spacePath = nameSpace.append(space).append(methodName)
+				.toString().replace(".", "/");
 		return spacePath;
 	}
 

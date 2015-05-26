@@ -17,12 +17,12 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import com.pmp.common.ReflectUtil;
 
-public class MongoBaseDao<T, PK extends Serializable> {
+public class MongoBaseDAO<T, PK extends Serializable> {
 
 	private MongoTemplate mongoTemplate;
 	private Class<T> entityClass;
 
-	public MongoBaseDao() {
+	public MongoBaseDAO() {
 		entityClass = ReflectUtil.getGenericParmeterType(this.getClass());
 	}
 
