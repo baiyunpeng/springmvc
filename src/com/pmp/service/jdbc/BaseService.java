@@ -1,4 +1,4 @@
-package com.pmp.service;
+package com.pmp.service.jdbc;
 
 public class BaseService {
 	

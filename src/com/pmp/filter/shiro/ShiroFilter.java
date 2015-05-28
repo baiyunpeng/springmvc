@@ -18,7 +18,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.pmp.pojo.User;
-import com.pmp.service.UserService;
+import com.pmp.service.jdbc.UserService;
 
 public class ShiroFilter implements Filter{
 

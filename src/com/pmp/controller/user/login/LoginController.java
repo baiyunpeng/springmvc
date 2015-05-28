@@ -20,7 +20,8 @@ import com.pmp.constant.OperationConstant;
 import com.pmp.constant.SessionConstant;
 import com.pmp.controller.base.BaseController;
 import com.pmp.pojo.User;
-import com.pmp.service.UserService;
+import com.pmp.service.jdbc.UserService;
+import com.pmp.service.redis.RedisService;
 import com.pmp.session.SessionHolder;
 
 @Controller
@@ -28,6 +29,8 @@ import com.pmp.session.SessionHolder;
 public class LoginController extends BaseController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private RedisService redisService;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView Index(HttpServletRequest request,
@@ -46,6 +49,7 @@ public class LoginController extends BaseController {
 	@Token(save = true)
 	public ModelAndView toLogin(HttpServletRequest request,
 			HttpServletResponse response) {
+
 		return getMov();
 	}
 

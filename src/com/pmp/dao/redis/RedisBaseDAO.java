@@ -1,38 +1,24 @@
 package com.pmp.dao.redis;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.pmp.common.RText;
 
-
-public  class RedisBaseDAO<T> {
+@Repository
+public class RedisBaseDAO {
 	@Autowired
 	private StringRedisTemplate stringRedisTemplate;
-	private Class<T> entityClass;
-
-	public RedisBaseDAO() {
-		Type type = getClass().getGenericSuperclass();
-		if (type instanceof ParameterizedType) {
-			Type[] types = ((ParameterizedType) type).getActualTypeArguments();
-			entityClass = (Class<T>) types[0];
-		}
-	}
-
-	public Class<T> getEntityClass() {
-		return entityClass;
-	}
 
 	/**
 	 * 数据验证
+	 * 
 	 * @param key
 	 * @return
 	 */
@@ -45,6 +31,7 @@ public  class RedisBaseDAO<T> {
 
 	/**
 	 * 数据验证
+	 * 
 	 * @param key
 	 * @param value
 	 * @return
@@ -53,7 +40,6 @@ public  class RedisBaseDAO<T> {
 		if (RText.isEmpty(key)) {
 			return true;
 		}
-
 		if (RText.isEmpty(value)) {
 			return true;
 		}
@@ -62,6 +48,7 @@ public  class RedisBaseDAO<T> {
 
 	/**
 	 * 数据验证
+	 * 
 	 * @param key
 	 * @param value
 	 * @param sec
@@ -84,6 +71,7 @@ public  class RedisBaseDAO<T> {
 
 	/**
 	 * 数据验证
+	 * 
 	 * @param key
 	 * @param sec
 	 * @return
@@ -101,6 +89,7 @@ public  class RedisBaseDAO<T> {
 
 	/**
 	 * 获取String数据
+	 * 
 	 * @param key
 	 * @return
 	 */
@@ -113,6 +102,7 @@ public  class RedisBaseDAO<T> {
 
 	/**
 	 * 获取List数据
+	 * 
 	 * @param key
 	 * @return
 	 */
@@ -125,6 +115,7 @@ public  class RedisBaseDAO<T> {
 
 	/**
 	 * 获取Map 数据
+	 * 
 	 * @param key
 	 * @return
 	 */
@@ -153,6 +144,7 @@ public  class RedisBaseDAO<T> {
 
 	/**
 	 * 添加数据
+	 * 
 	 * @param key
 	 * @param value
 	 */

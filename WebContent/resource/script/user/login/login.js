@@ -51,7 +51,6 @@ $(function() {
 		validate();
 		var username = $("#username").val();
 		var password = $("#password").val();
-		alert(username+":"+password);
 		var index = loading();
 		$.post("checkLogin.html", { "username":encodeURI(username),"password":password },function(data){
 			closeLayer(index);

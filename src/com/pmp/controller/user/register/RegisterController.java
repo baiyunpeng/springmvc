@@ -19,7 +19,7 @@ import com.pmp.constant.OperationConstant;
 import com.pmp.constant.SessionConstant;
 import com.pmp.controller.base.BaseController;
 import com.pmp.pojo.User;
-import com.pmp.service.UserService;
+import com.pmp.service.jdbc.UserService;
 import com.pmp.session.SessionHolder;
 
 @Controller

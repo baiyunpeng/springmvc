@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.pmp.pojo.Role;
 import com.pmp.pojo.User;
-import com.pmp.service.UserService;
+import com.pmp.service.jdbc.UserService;
 
 /**
  * shiro 安全规则配置
